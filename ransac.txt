@@ -1,0 +1,5 @@
+ransac explained
+
+1. import numpy and random modules
+
+2.the fit line function 
