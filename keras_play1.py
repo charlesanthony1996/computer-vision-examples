@@ -42,3 +42,46 @@ def my_regularizer(x):
 # print(my_regularizer(tensor))
 
 my_regularizer(tensor)
+
+
+class Myregularizer(tf.keras.regularizers.Regularizer):
+    def __init__(self, strength):
+        self.strength = strength
+
+    def __call__(self, x):
+        return self.strength * tf.reduce_sum(tf.square(x))
+
+
+
+class MyRegularizer(tf.keras.regularizers.Regularizer):
+
+    def __init__(self, strength):
+        self.strength = strength
+
+    def __call__(self, x):
+        return self.strength * tf.reduce_sum(tf.square(x))
+
+    def get_config(self):
+        return {'strength': self.strength}
+
+
+# using the class here
+my_reg_instance = Myregularizer(strength = 0.001)
+
+layer = tf.keras.layers.Dense(units=4, kernel_regularizer= my_reg_instance)
+
+out = layer(tensor)
+
+print(out)
+
+print(tf.math.reduce_sum(layer.losses))
+
+my_reg_instance = MyRegularizer(strength= 0.01)
+
+layer = tf.keras.layers.Dense(units= 4, kernel_regularizer=my_reg_instance)
+
+out = layer(tensor)
+
+print(out)
+
+print(tf.math.reduce_sum(layer.losses))
