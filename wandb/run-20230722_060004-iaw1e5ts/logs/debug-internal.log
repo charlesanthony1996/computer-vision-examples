@@ -1,0 +1,49 @@
+2023-07-22 06:00:04,426 INFO    StreamThr :5503 [internal.py:wandb_internal():86] W&B internal server running at pid: 5503, started at: 2023-07-22 06:00:04.425926
+2023-07-22 06:00:04,428 DEBUG   HandlerThread:5503 [handler.py:handle_request():144] handle_request: status
+2023-07-22 06:00:04,442 INFO    WriterThread:5503 [datastore.py:open_for_write():85] open: /Users/charles/Desktop/computer-vision-examples/wandb/run-20230722_060004-iaw1e5ts/run-iaw1e5ts.wandb
+2023-07-22 06:00:04,443 DEBUG   SenderThread:5503 [sender.py:send():369] send: header
+2023-07-22 06:00:04,477 DEBUG   SenderThread:5503 [sender.py:send():369] send: run
+2023-07-22 06:00:04,917 ERROR   SenderThread:5503 [internal_api.py:execute():324] 404 response executing GraphQL.
+2023-07-22 06:00:04,918 ERROR   SenderThread:5503 [internal_api.py:execute():325] {"errors":[{"message":"project not found","path":["upsertBucket"]}],"data":{"upsertBucket":null}}
+2023-07-22 06:00:04,918 ERROR   SenderThread:5503 [sender.py:send_run():955] It appears that you do not have permission to access the requested resource. Please reach out to the project owner to grant you access. If you have the correct permissions, verify that there are no issues with your networking setup.(Error 404: Not Found)
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/wandb/sdk/lib/retry.py", line 131, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/wandb/sdk/internal/internal_api.py", line 321, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/wandb/sdk/lib/gql_request.py", line 56, in execute
+    request.raise_for_status()
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://api.wandb.ai/graphql
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/wandb/sdk/internal/sender.py", line 953, in send_run
+    self._init_run(run, config_value_dict)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/wandb/sdk/internal/sender.py", line 991, in _init_run
+    server_run, inserted, server_messages = self._api.upsert_run(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/wandb/apis/normalize.py", line 73, in wrapper
+    raise err
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/wandb/apis/normalize.py", line 41, in wrapper
+    return func(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/wandb/sdk/internal/internal_api.py", line 1822, in upsert_run
+    response = self.gql(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/wandb/sdk/internal/internal_api.py", line 293, in gql
+    ret = self._retry_gql(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/wandb/sdk/lib/retry.py", line 147, in __call__
+    retry_timedelta_triggered = check_retry_fn(e)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/wandb/util.py", line 946, in check_retry_fn
+    return fallback_retry_fn(e)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/wandb/util.py", line 888, in no_retry_auth
+    raise CommError(
+wandb.errors.CommError: It appears that you do not have permission to access the requested resource. Please reach out to the project owner to grant you access. If you have the correct permissions, verify that there are no issues with your networking setup.(Error 404: Not Found)
+2023-07-22 06:00:05,085 DEBUG   HandlerThread:5503 [handler.py:handle_request():144] handle_request: shutdown
+2023-07-22 06:00:05,085 INFO    HandlerThread:5503 [handler.py:finish():854] shutting down handler
+2023-07-22 06:00:05,481 INFO    WriterThread:5503 [datastore.py:close():298] close: /Users/charles/Desktop/computer-vision-examples/wandb/run-20230722_060004-iaw1e5ts/run-iaw1e5ts.wandb
+2023-07-22 06:00:05,934 INFO    SenderThread:5503 [sender.py:finish():1526] shutting down sender

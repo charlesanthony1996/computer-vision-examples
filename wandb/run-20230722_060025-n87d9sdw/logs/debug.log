@@ -1,0 +1,27 @@
+2023-07-22 06:00:25,769 INFO    MainThread:5590 [wandb_setup.py:_flush():76] Current SDK version is 0.15.5
+2023-07-22 06:00:25,770 INFO    MainThread:5590 [wandb_setup.py:_flush():76] Configure stats pid to 5590
+2023-07-22 06:00:25,770 INFO    MainThread:5590 [wandb_setup.py:_flush():76] Loading settings from /Users/charles/.config/wandb/settings
+2023-07-22 06:00:25,770 INFO    MainThread:5590 [wandb_setup.py:_flush():76] Loading settings from /Users/charles/Desktop/computer-vision-examples/wandb/settings
+2023-07-22 06:00:25,770 INFO    MainThread:5590 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2023-07-22 06:00:25,770 INFO    MainThread:5590 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2023-07-22 06:00:25,770 INFO    MainThread:5590 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'malaria_detection.py', 'program': '/Users/charles/Desktop/computer-vision-examples/malaria_detection.py'}
+2023-07-22 06:00:25,770 INFO    MainThread:5590 [wandb_init.py:_log_setup():507] Logging user logs to /Users/charles/Desktop/computer-vision-examples/wandb/run-20230722_060025-n87d9sdw/logs/debug.log
+2023-07-22 06:00:25,770 INFO    MainThread:5590 [wandb_init.py:_log_setup():508] Logging internal logs to /Users/charles/Desktop/computer-vision-examples/wandb/run-20230722_060025-n87d9sdw/logs/debug-internal.log
+2023-07-22 06:00:25,771 INFO    MainThread:5590 [wandb_init.py:init():547] calling init triggers
+2023-07-22 06:00:25,771 INFO    MainThread:5590 [wandb_init.py:init():554] wandb.init called with sweep_config: {}
+config: {}
+2023-07-22 06:00:25,771 INFO    MainThread:5590 [wandb_init.py:init():596] starting backend
+2023-07-22 06:00:25,771 INFO    MainThread:5590 [wandb_init.py:init():600] setting up manager
+2023-07-22 06:00:25,777 INFO    MainThread:5590 [backend.py:_multiprocessing_setup():106] multiprocessing start_methods=spawn,fork,forkserver, using: spawn
+2023-07-22 06:00:25,783 INFO    MainThread:5590 [wandb_init.py:init():606] backend started and connected
+2023-07-22 06:00:25,791 INFO    MainThread:5590 [wandb_init.py:init():705] updated telemetry
+2023-07-22 06:00:25,833 INFO    MainThread:5590 [wandb_init.py:init():738] communicating run to backend with 60.0 second timeout
+2023-07-22 06:00:26,246 ERROR   MainThread:5590 [wandb_init.py:init():764] encountered error: It appears that you do not have permission to access the requested resource. Please reach out to the project owner to grant you access. If you have the correct permissions, verify that there are no issues with your networking setup.(Error 404: Not Found)
+2023-07-22 06:00:26,376 ERROR   MainThread:5590 [wandb_init.py:init():1172] It appears that you do not have permission to access the requested resource. Please reach out to the project owner to grant you access. If you have the correct permissions, verify that there are no issues with your networking setup.(Error 404: Not Found)
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/wandb/sdk/wandb_init.py", line 1154, in init
+    run = wi.init()
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/wandb/sdk/wandb_init.py", line 770, in init
+    raise error
+wandb.errors.CommError: It appears that you do not have permission to access the requested resource. Please reach out to the project owner to grant you access. If you have the correct permissions, verify that there are no issues with your networking setup.(Error 404: Not Found)
+2023-07-22 06:00:27,383 WARNING MsgRouterThr:5590 [router.py:message_loop():77] message_loop has been closed
