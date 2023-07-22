@@ -59,4 +59,4 @@ from tensorboard.plugins.hparams import api as hp
 
 
 # download the dataset
-
+datset, dataset_info = tfds.load("malaria", with_info=True, )
