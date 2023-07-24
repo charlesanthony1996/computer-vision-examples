@@ -1,6 +1,8 @@
 from tensorflow.keras import layers
 from tensorflow.keras import regularizers
 import tensorflow as tf
+from tensorflow.keras.layers import Layer
+from tensorflow.keras.models import Model
 
 layer = layers.Dense(
     units= 64,
@@ -85,3 +87,48 @@ out = layer(tensor)
 print(out)
 
 print(tf.math.reduce_sum(layer.losses))
+
+class SimpleDense(Layer):
+    def __init__(self, units = 32):
+        super(SimpleDense, self).__init__()
+        self.units = units
+
+    # create the state of the layer
+    def build(self, input_shape):
+        w_init = tf.random_normal_initializer()
+        self.w = tf.Variable(
+            initial_value=w_init(shape=(input_shape[-1], self.units), dtype="float32"), trainable=True
+        )
+        b_init = tf.zeros_initializer()
+        self.b = tf.Variable(initial_value=b_init(shape=(self.units,), dtype="float32"), trainable=True)
+
+    def call(self, inputs):
+        return tf.matmul(inputs, self.w) + self.b
+
+# instantiates the layer
+linear_layer = SimpleDense(4)
+
+# print(linear_layer)
+
+model = tf.keras.models.Sequential([SimpleDense(4)])
+model.build((None, 10))
+model.summary()
+
+model1 = tf.keras.models.Sequential([
+    SimpleDense(32),
+    SimpleDense(16),
+    SimpleDense(4)
+])
+
+model1.build((None, 10))
+model1.summary()
+
+y = linear_layer(tf.ones((2, 2)))
+print(y)
+
+assert len(linear_layer.weights) == 2
+
+assert len(linear_layer.trainable_weights) == 2
+
+
+# 

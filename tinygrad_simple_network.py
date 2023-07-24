@@ -102,7 +102,33 @@ def cross_entropy(out, Y):
     y = Tensor(y)
     return out.mul(y).mean()
 
-    
+
+from tinygrad.nn.optim import SGD
+
+opt = SGD([net.l1.weight, net.l2.weight], lr=3e-4)
+
+
+from extra.datasets import fetch_mnist
+
+x_train, x_test, y_train, y_test = fetch_mnist()
+
+for step in range(1000):
+    # random sample a batch
+    samp = np.random.randint(0, x_train.shape[0], size=(64))
+    batch = Tensor(x_train[samp], requires_grad=True)
+    # get the corresponding labels
+    labels = Y_train[samp]
+
+    # forwards pass
+    out = net(batch)
+
+    # compute loss
+    loss = cross_entropy(out, labels)
+
+    # zero gradients
+
+
+# need to finish this in the tinygrad repo itself
 
 
 
