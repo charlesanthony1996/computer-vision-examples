@@ -22,3 +22,5 @@ ciphertext = cipher.encrypt(plaintext)
 # write the ciphertext to a file
 with open("ciphertext.txt", "wb") as ciphertext_file:
     ciphertext_file.write(ciphertext)
+
+
