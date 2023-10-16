@@ -46,3 +46,14 @@ cv2.imwrite("/users/charles/desktop/images/output_akaze_keypoints.jpg", img_keyp
 
 cv2.waitKey(0)
 cv2.destroyAllWindows()
+
+
+# whats changed in this improved version?
+
+#     Image resizing for potential performance gains.
+#     Enhanced contrast through histogram equalization.
+#     Sorted the keypoints based on their response to visualize only the top 100 keypoints.
+#     Enhanced keypoint drawing to display rich features.
+#     Saving the result with drawn keypoints to an output file.
+
+# what else can i add to this?
